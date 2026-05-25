@@ -8,6 +8,11 @@ using namespace std;
     int comodin1, comodin2, comodin3; // Comodines
     int blind; // Blind (Ciega)
     int valorCarta1, valorCarta2, valorCarta3, valorCarta4, valorCarta5; // Valores de las cartas
+    int points; // Puntaje
+    int mult; // Multiplicadores
+    int fichas; // Total de fichas de la mano
+
+    // Formula: (Valor de la mano + Total de puntos de cada carta) * Mult
 
 int obtenerValorCarta(char carta) {
     if (carta == '2') return 2;
