@@ -39,6 +39,8 @@ int obtenerPaloCartas(int palos) {
     paloCarta3 = (palos / 100) % 10;
     paloCarta4 = (palos / 10) % 10;
     paloCarta5 = palos % 10;
+
+    return 0;
 }
 
 int main(){
