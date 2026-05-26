@@ -3,19 +3,18 @@
 using namespace std;
 
 // Definir variables
-    char card1, card2, card3, card4, card5; // Cartas
-    int palos; // Palos de cartas
-    int comodin1, comodin2, comodin3; // Comodines
-    int blind; // Blind (Ciega)
-    int valorCarta1, valorCarta2, valorCarta3, valorCarta4, valorCarta5; // Valores de las cartas
-    int paloCarta1, paloCarta2, paloCarta3, paloCarta4, paloCarta5; // Palos de las cartas
-    //int fichas = valorCartasTotal + valorTabla; // Total de fichas de la mano
-    bool esColor = false;
-    int valorTabla;
-    int mult; // Multiplicadores
-    
-    
-    // Formula: Total de Puntos = (Valor de la mano + Total de puntos de cada carta) * Mult
+char card1, card2, card3, card4, card5; // Cartas
+int palos; // Palos de cartas
+int comodin1, comodin2, comodin3; // Comodines
+int blind; // Blind (Ciega)
+int valorCarta1, valorCarta2, valorCarta3, valorCarta4, valorCarta5; // Valores de las cartas
+int paloCarta1, paloCarta2, paloCarta3, paloCarta4, paloCarta5; // Palos de las cartas
+//int fichas = valorCartasTotal + valorTabla; // Total de fichas de la mano
+bool esColor = false;
+int valorTabla;
+int mult; // Multiplicadores
+
+// Formula: Total de Puntos = (Valor de la mano + Total de puntos de cada carta) * Mult
 
 // Funciones
 int obtenerValorCarta(char carta) {
@@ -33,8 +32,8 @@ int obtenerValorCarta(char carta) {
     else if (carta == 'K') return 13;
     else if (carta == 'A') return 15;
         
-        return 0;
-    }
+    return 0;
+}
 int obtenerPaloCartas(int palos) {
     paloCarta1 = palos / 10000;
     paloCarta2 = (palos / 1000) % 10;
@@ -45,17 +44,13 @@ int obtenerPaloCartas(int palos) {
     return 0;
 }
 
-
-
 int main(){
-
-    
 
     // Pedir datos al usuario
     cin >> card1 >> card2 >> card3 >> card4 >> card5; // Pedir mano de cartas
-    /*cin >> palos; // Pedir palo de las cartas
+    cin >> palos; // Pedir palo de las cartas
     cin >> comodin1 >> comodin2 >> comodin3; // Pedir los comodines
-    cin >> blind; // Pedir Blind*/
+    cin >> blind; // Pedir Blind
 
     // Obtener valores de las cartas
     valorCarta1 = obtenerValorCarta(card1);
@@ -63,8 +58,7 @@ int main(){
     valorCarta3 = obtenerValorCarta(card3);
     valorCarta4 = obtenerValorCarta(card4);
     valorCarta5 = obtenerValorCarta(card5);
-
-    int valorCartasTotal = valorCarta1 + valorCarta2  + valorCarta3 + valorCarta4 + valorCarta5; //valor total de las cartas
+    int valorCartasTotal = valorCarta1 + valorCarta2  + valorCarta3 + valorCarta4 + valorCarta5; // Valor total de las cartas
 
     // Definir palos de las cartas
     obtenerPaloCartas(palos);
@@ -73,7 +67,6 @@ int main(){
     if (paloCarta1 == paloCarta2 && paloCarta2 == paloCarta3 && paloCarta3 == paloCarta4 && paloCarta4 == paloCarta5) {
     esColor = true;
     }
-    
     cout<<"total cartas: "<<valorCartasTotal<<endl;
 
     
