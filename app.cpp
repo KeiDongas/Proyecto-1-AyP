@@ -12,7 +12,7 @@ using namespace std;
     int fichas; // Total de fichas de la mano
     int valorCarta1, valorCarta2, valorCarta3, valorCarta4, valorCarta5; // Valores de las cartas
     int paloCarta1, paloCarta2, paloCarta3, paloCarta4, paloCarta5; // Palos de las cartas
-
+    bool esColor = false;
     // Formula: Total de Puntos = (Valor de la mano + Total de puntos de cada carta) * Mult
 
 // Funciones
@@ -43,6 +43,8 @@ int obtenerPaloCartas(int palos) {
     return 0;
 }
 
+
+
 int main(){
 
     // Pedir datos al usuario
@@ -60,6 +62,11 @@ int main(){
 
     // Definir palos de las cartas
     obtenerPaloCartas(palos);
+    
+    //Mierda
+    if (paloCarta1 == paloCarta2 && paloCarta2 == paloCarta3 && paloCarta3 == paloCarta4 && paloCarta4 == paloCarta5) {
+    esColor = true;
+    }
 
     return 0;
 }
