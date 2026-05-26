@@ -9,10 +9,11 @@ using namespace std;
     int blind; // Blind (Ciega)
     int valorCarta1, valorCarta2, valorCarta3, valorCarta4, valorCarta5; // Valores de las cartas
     int paloCarta1, paloCarta2, paloCarta3, paloCarta4, paloCarta5; // Palos de las cartas
-    //int fichas = valorCartasTotal + valorTabla; // Total de fichas de la mano
+    int fichas; // Total de fichas de la mano
     bool esColor = false;
     int valorTabla;
     int mult; // Multiplicadores
+    int valorCartasTotal; //valor total de las cartas
     
     
     // Formula: Total de Puntos = (Valor de la mano + Total de puntos de cada carta) * Mult
@@ -64,7 +65,8 @@ int main(){
     valorCarta4 = obtenerValorCarta(card4);
     valorCarta5 = obtenerValorCarta(card5);
 
-    int valorCartasTotal = valorCarta1 + valorCarta2  + valorCarta3 + valorCarta4 + valorCarta5; //valor total de las cartas
+    valorCartasTotal = valorCarta1 + valorCarta2  + valorCarta3 + valorCarta4 + valorCarta5;
+    fichas = valorCartasTotal + valorTabla;
 
     // Definir palos de las cartas
     obtenerPaloCartas(palos);
