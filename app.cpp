@@ -13,6 +13,7 @@ using namespace std;
     bool esColor = false;
     int valorTabla;
     int mult; // Multiplicadores
+    int valorCartasTotal;
     
     
     // Formula: Total de Puntos = (Valor de la mano + Total de puntos de cada carta) * Mult
@@ -49,9 +50,9 @@ int main(){
 
     // Pedir datos al usuario
     cin >> card1 >> card2 >> card3 >> card4 >> card5; // Pedir mano de cartas
-    cin >> palos; // Pedir palo de las cartas
+    /*cin >> palos; // Pedir palo de las cartas
     cin >> comodin1 >> comodin2 >> comodin3; // Pedir los comodines
-    cin >> blind; // Pedir Blind
+    cin >> blind; // Pedir Blind*/
 
     // Obtener valores de las cartas
     valorCarta1 = obtenerValorCarta(card1);
@@ -60,7 +61,7 @@ int main(){
     valorCarta4 = obtenerValorCarta(card4);
     valorCarta5 = obtenerValorCarta(card5);
 
-    int valorCartasTotal = valorCarta1 + valorCarta2  + valorCarta3 + valorCarta4 + valorCarta5; //valor total de las cartas
+    valorCartasTotal = valorCarta1 + valorCarta2  + valorCarta3 + valorCarta4 + valorCarta5; //valor total de las cartas
 
     // Definir palos de las cartas
     obtenerPaloCartas(palos);
