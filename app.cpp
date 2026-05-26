@@ -9,7 +9,7 @@ using namespace std;
     int blind; // Blind (Ciega)
     int valorCarta1, valorCarta2, valorCarta3, valorCarta4, valorCarta5; // Valores de las cartas
     int paloCarta1, paloCarta2, paloCarta3, paloCarta4, paloCarta5; // Palos de las cartas
-    //int fichas = valorCartasTotal + valorTabla; // Total de fichas de la mano
+    int fichas; // = valorCartasTotal + valorTabla; // Total de fichas de la mano
     bool esColor = false;
     int valorTabla;
     int mult; // Multiplicadores
@@ -50,8 +50,8 @@ int main(){
 
     // Pedir datos al usuario
     cin >> card1 >> card2 >> card3 >> card4 >> card5; // Pedir mano de cartas
-    /*cin >> palos; // Pedir palo de las cartas
-    cin >> comodin1 >> comodin2 >> comodin3; // Pedir los comodines
+    cin >> palos; // Pedir palo de las cartas
+    /*cin >> comodin1 >> comodin2 >> comodin3; // Pedir los comodines
     cin >> blind; // Pedir Blind*/
 
     // Obtener valores de las cartas
@@ -66,11 +66,12 @@ int main(){
     // Definir palos de las cartas
     obtenerPaloCartas(palos);
     
-    //Mierda
+    //Comprobacion de que es un COLOR
     if (paloCarta1 == paloCarta2 && paloCarta2 == paloCarta3 && paloCarta3 == paloCarta4 && paloCarta4 == paloCarta5) {
     esColor = true;
     }
     cout<<"total cartas: "<<valorCartasTotal<<endl;
+    cout<<esColor<<endl;
 
     
     return 0;
