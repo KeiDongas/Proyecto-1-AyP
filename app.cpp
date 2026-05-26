@@ -11,9 +11,11 @@ using namespace std;
     int mult; // Multiplicadores
     int fichas; // Total de fichas de la mano
     int valorCarta1, valorCarta2, valorCarta3, valorCarta4, valorCarta5; // Valores de las cartas
+    int paloCarta1, paloCarta2, paloCarta3, paloCarta4, paloCarta5; // Palos de las cartas
 
-    // Formula: (Valor de la mano + Total de puntos de cada carta) * Mult
+    // Formula: Total de Puntos = (Valor de la mano + Total de puntos de cada carta) * Mult
 
+// Funciones
 int obtenerValorCarta(char carta) {
     if (carta == '2') return 2;
     else if (carta == '3') return 3;
@@ -31,6 +33,13 @@ int obtenerValorCarta(char carta) {
         
         return 0;
     }
+int obtenerPaloCartas(int palos) {
+    paloCarta1 = palos / 10000;
+    paloCarta2 = (palos / 1000) % 10;
+    paloCarta3 = (palos / 100) % 10;
+    paloCarta4 = (palos / 10) % 10;
+    paloCarta5 = palos % 10;
+}
 
 int main(){
 
@@ -46,6 +55,9 @@ int main(){
     valorCarta3 = obtenerValorCarta(card3);
     valorCarta4 = obtenerValorCarta(card4);
     valorCarta5 = obtenerValorCarta(card5);
+
+    // Definir palos de las cartas
+    obtenerPaloCartas(palos);
 
     return 0;
 }
