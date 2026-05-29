@@ -1,0 +1,2 @@
+
+    obtenerPaloCartas(palos);
