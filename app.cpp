@@ -140,13 +140,23 @@ int main() {
         if (valorCarta4 > valorCarta5) intercambiar(card4, card5, valorCarta4, valorCarta5, paloCarta4, paloCarta5);
     }
 
-    // COMPROBAR SI HAY COMODIN CUATRO DEDOS
+    // Comprueba si hay comodin cuatro dedos
     bool hayCuatroDedos = comodin1 == 7 || comodin2 == 7 || comodin3 == 7;
 
     // Comprobar manos
     // Royal Flush
     if (hayCuatroDedos) {
-        if (false) { // MIENTRAS
+        bool tiene10 = (card1 == 'T' || card2 == 'T' || card3 == 'T' || card4 == 'T' || card5 == 'T');
+        bool tieneJ  = (card1 == 'J' || card2 == 'J' || card3 == 'J' || card4 == 'J' || card5 == 'J');
+        bool tieneQ  = (card1 == 'Q' || card2 == 'Q' || card3 == 'Q' || card4 == 'Q' || card5 == 'Q');
+        bool tieneK  = (card1 == 'K' || card2 == 'K' || card3 == 'K' || card4 == 'K' || card5 == 'K');
+        bool tieneA  = (card1 == 'A' || card2 == 'A' || card3 == 'A' || card4 == 'A' || card5 == 'A');
+        int flushCaso1 = 1 + (paloCarta1 == paloCarta2) + (paloCarta1 == paloCarta3) + (paloCarta1 == paloCarta4) + (paloCarta1 == paloCarta5);
+        int flushCaso2 = (paloCarta2 == paloCarta1) + 1 + (paloCarta2 == paloCarta3) + (paloCarta2 == paloCarta4) + (paloCarta2 == paloCarta5);
+        bool mismoPalo4 = (flushCaso1 >= 4 || flushCaso2 >= 4);
+        bool royalCaso1 = tiene10 && tieneJ && tieneQ && tieneK && mismoPalo4;
+        bool royalCaso2 = tieneJ && tieneQ && tieneK && tieneA && mismoPalo4;
+        if (royalCaso1 || royalCaso2) {
             esRoyalFlush = true;
         }
     } else {
@@ -156,7 +166,15 @@ int main() {
     }
     // Straight Flush (escalera color)
     if (hayCuatroDedos) {
-        if (false) { // MIENTRAS
+        bool straightFlushCaso1 = ((valorCarta2 == valorCarta1 + 1) && (valorCarta3 == valorCarta2 + 1) && (valorCarta4 == valorCarta3 + 1 || valorCarta4 == valorCarta3 + 2)) &&
+                                  ((paloCarta1 == paloCarta2) && (paloCarta2 == paloCarta3) && (paloCarta3 == paloCarta4));
+        bool straightFlushCaso2 = ((valorCarta3 == valorCarta2 + 1) && (valorCarta4 == valorCarta3 + 1) && (valorCarta5 == valorCarta4 + 1 || valorCarta5 == valorCarta4 + 2)) &&
+                                  ((paloCarta2 == paloCarta3) && (paloCarta3 == paloCarta4) && (paloCarta4 == paloCarta5));
+        bool straightFlushCaso3 = ((valorCarta2 == valorCarta1 + 1) && (valorCarta4 == valorCarta2 + 1) && (valorCarta5 == valorCarta4 + 1 || valorCarta5 == valorCarta4 + 2)) &&
+                                  ((paloCarta1 == paloCarta2) && (paloCarta2 == paloCarta4) && (paloCarta4 == paloCarta5));
+        bool straightFlushCaso4 = ((valorCarta3 == valorCarta1 + 1) && (valorCarta4 == valorCarta3 + 1) && (valorCarta5 == valorCarta4 + 1 || valorCarta5 == valorCarta4 + 2)) &&
+                                  ((paloCarta1 == paloCarta3) && (paloCarta3 == paloCarta4) && (paloCarta4 == paloCarta5));
+        if (straightFlushCaso1 || straightFlushCaso2 || straightFlushCaso3 || straightFlushCaso4) {
             esStraightFlush = true;
         }
     } else {
@@ -175,9 +193,11 @@ int main() {
             (valorCarta1 == valorCarta2 && valorCarta2 == valorCarta3 && valorCarta4 == valorCarta5)) { //[3,3,3,2,2]
         esFullHouse = true;
     }
-    // Flush
+    // Flush (color)
     if (hayCuatroDedos) {
-        if (false) { // MIENTRAS
+        int flushCaso1 = 1 + (paloCarta1 == paloCarta2) + (paloCarta1 == paloCarta3) + (paloCarta1 == paloCarta4) + (paloCarta1 == paloCarta5);
+        int flushCaso2 = (paloCarta2 == paloCarta1) + 1 + (paloCarta2 == paloCarta3) + (paloCarta2 == paloCarta4) + (paloCarta2 == paloCarta5);
+        if ((flushCaso1 >= 4) || (flushCaso2 >= 4)) {
             esFlush = true;
         }
     } else {
@@ -187,7 +207,11 @@ int main() {
     }
     // Straight (escalera)
     if (hayCuatroDedos) {
-        if (false) { // MIENTRAS
+        bool straightCaso1 = (valorCarta2 == valorCarta1 + 1) && (valorCarta3 == valorCarta2 + 1) && (valorCarta4 == valorCarta3 + 1 || valorCarta4 == valorCarta3 + 2);
+        bool straightCaso2 = (valorCarta3 == valorCarta2 + 1) && (valorCarta4 == valorCarta3 + 1) && (valorCarta5 == valorCarta4 + 1 || valorCarta5 == valorCarta4 + 2);
+        bool straightCaso3 = (valorCarta2 == valorCarta1 + 1) && (valorCarta4 == valorCarta2 + 1) && (valorCarta5 == valorCarta4 + 1 || valorCarta5 == valorCarta4 + 2);
+        bool straightCaso4 = (valorCarta3 == valorCarta1 + 1) && (valorCarta4 == valorCarta3 + 1) && (valorCarta5 == valorCarta4 + 1 || valorCarta5 == valorCarta4 + 2);
+        if (straightCaso1 || straightCaso2 || straightCaso3 || straightCaso4) {
             esStraight = true;
         }
     } else {
